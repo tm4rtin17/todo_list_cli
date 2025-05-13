@@ -1,6 +1,5 @@
-# ✅ Todo List CLI Tool
+# ✅ Todo List CLI
 
-Welcome to the **Todo List CLI Tool**!
 This is a simple, lightweight command-line application built with Python to help you manage your tasks efficiently. Whether you're jotting down daily chores or planning your next big project, this tool keeps your tasks organized with a user-friendly interface.
 
 🛠️ The tool is actively maintained, with plans to add exciting new features over time! Contributions are welcome — feel free to dive in and make it your own.
