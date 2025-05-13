@@ -14,7 +14,7 @@ This is a simple, lightweight command-line application built with Python to help
 * ❌ **Remove Items**: Clear completed tasks or unwanted items with a simple selection process.
 * 🧭 **Interactive Menu**: Navigate through a clean, numbered menu to perform actions.
 * ✅ **Input Validation**: Powered by `pyinputplus` to ensure valid inputs every time.
-* 🪶 **Lightweight & Portable**: No complex dependencies—just Python and a single library!
+* **Lightweight & Portable**: No complex dependencies—just Python and a single library!
 
 ---
 
