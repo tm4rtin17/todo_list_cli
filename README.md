@@ -1,8 +1,3 @@
-# To Do List CLI
-Here’s a cleaned-up and more engaging version of your README file, complete with formatting improvements and emojis for better readability:
-
----
-
 # ✅ Todo List CLI Tool
 
 Welcome to the **Todo List CLI Tool**!
