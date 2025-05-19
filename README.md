@@ -1,4 +1,4 @@
-# Todo CLI
+# Todo CLI (V1.2.0)
 
 This is a simple command-line application built with Python that helps you manage your tasks. It includes support for priorities and lets you track completion status.
 
