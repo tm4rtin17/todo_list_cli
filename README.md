@@ -1,5 +1,5 @@
-# Todo CLI (V1.2.0)
-
+# Todo CLI V1.2.01
+=======
 This is a simple command-line application built with Python that helps you manage your tasks. It includes support for priorities and lets you track completion status.
 
 ## Features
@@ -7,6 +7,7 @@ This is a simple command-line application built with Python that helps you manag
 - **View Tasks:** Display your current to-do list with priorities and completion status.
 - **Add Tasks:** Input a task description and assign a priority level (High, Medium, Low).
 - **Mark as Done:** Update a task to indicate it’s been completed.
+- **Due Date:** Assign a due date for a task
 - **Interactive Menu:** Navigate using a numbered menu system.
 - **Input Validation:** Powered by `pyinputplus` to ensure valid entries.
 
@@ -45,6 +46,7 @@ Once the script runs, you'll be presented with a menu.
 - Choose option [1]
 - Provide a task description
 - Assign a priority: [1] High, [2] Medium, [3] Low
+- Assign a due date
 
 ### Mark a Task as Done
 
@@ -59,8 +61,8 @@ Once the script runs, you'll be presented with a menu.
 ## Example Session
 
 ```
-1. Buy groceries; Priority: Medium; Done: False
-2. Call mom; Priority: High; Done: False
+1. Buy groceries; Priority: Medium; Due Date: 2025-10-05; Done: False
+2. Call mom; Priority: High; Due Date: 2025-01-01 Done: False
 
 Would you like to:
 [1] Add a Task
@@ -71,8 +73,8 @@ Would you like to:
 Which task would you like to mark as done?
 > 2
 
-1. Buy groceries; Priority: Medium; Done: False
-2. Call mom; Priority: High; Done: True
+1. Buy groceries; Priority: Medium; Due Date: 2025-10-05 Done: False
+2. Call mom; Priority: High; Due Date: 2025-01-01 Done: True
 ```
 
 ## Planned Features
@@ -80,7 +82,7 @@ Which task would you like to mark as done?
 - Persistent storage (save and load tasks from a file)
 - Task removal
 - Task categories
-- Due dates and reminders
+- Reminders
 - Enhanced filtering and sorting
 
 ## Contributing
@@ -104,4 +106,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Acknowledgements
 
-- Built using Python and the `pyinputplus` library for reliable input handling.
+- Built using Python the `pyinputplus` library for reliable input handling.
