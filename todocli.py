@@ -3,6 +3,9 @@ import datetime
 from datetime import datetime as dt
 import json
 import os
+from rich import print
+from rich.table import Table
+from rich.console import Console
 
 class Task:
     def __init__(self, description: str,priority: str, duedate: datetime, done: bool):
@@ -11,13 +14,22 @@ class Task:
         self.duedate = duedate
         self.done = done
 
-with open('/home/pi/Coding_Projects/To-Do-List-CLI/tasks.json', 'r') as file:
-    tasks = json.load(file)
+#Define Table
+table = Table(title='Tasks')
+
+table.add_column('Index')
+table.add_column('Description')
+table.add_column('Priority')
+table.add_column('Due Date')
+table.add_column('Done')
+
+console = Console()
 
 def load_tasks():
     #check if file exists, if not create an empty tasks.json
-    if not os.path.exists('tasks.json'):
-        with open('tasks.json', 'w') as file:
+    file_path = 'tasks.json'
+    if not os.path.exists(file_path):
+        with open(file_path, 'w') as file:
             json.dump([], file)
         return []
     
@@ -50,7 +62,7 @@ def save_tasks(tasks):
         }
         for task in tasks
     ]
-    with open('/home/pi/Coding_Projects/To-Do-List-CLI/tasks.json', 'w') as file:
+    with open('tasks.json', 'w') as file:
         json.dump(data, file, indent=4)
 
 # Load tasks at the start
@@ -70,16 +82,17 @@ def add():
     task = Task(description, priority, duedate, done)
     tasks.append(task)
     save_tasks(tasks)
-    print(f'Added Task: {description}; Priority: {priority}, Due Date: {duedate}\n')
+    print(f'Added Task: {description}; Priority: {priority}, Due Date: {str(duedate)}\n')
 
 def view_tasks():
-    global tasks
+    global tasks, table
     if not tasks:
         print('\nNo tasks to view.\n')
     else:
         print('\n Tasks:')
         for index, task in enumerate(tasks, start=1):
             print(f'[{index}] {task.description}; Priority: {task.priority}; Due Date: {task.duedate}; Done: {task.done}')
+            console.print(table)
 
 def mark_done():
     view_tasks()
