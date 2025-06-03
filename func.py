@@ -1,29 +1,12 @@
+import task
 import pyinputplus as pyip
-import datetime
 from datetime import datetime as dt
 import json
 import os
 from rich import print
 from rich.table import Table
-from rich.console import Console
+from rich.console import console
 
-class Task:
-    def __init__(self, description: str,priority: str, duedate: datetime, done: bool):
-        self.description = description
-        self.priority = priority
-        self.duedate = duedate
-        self.done = done
-
-#Define Table
-table = Table(title='Tasks')
-
-table.add_column('Index')
-table.add_column('Description')
-table.add_column('Priority')
-table.add_column('Due Date')
-table.add_column('Done')
-
-console = Console()
 
 def load_tasks():
     #check if file exists, if not create an empty tasks.json
@@ -38,7 +21,7 @@ def load_tasks():
             data = json.load(file)
             #convert json objects to task objects
             tasks = [
-                Task(
+                task.Task(
                     description=task["description"],
                     priority=task["priority"],
                     duedate=dt.strptime(task["duedate"], "%Y-%m-%d").date(),
@@ -65,9 +48,6 @@ def save_tasks(tasks):
     with open('tasks.json', 'w') as file:
         json.dump(data, file, indent=4)
 
-# Load tasks at the start
-tasks = load_tasks()
-
 def add():
     description = pyip.inputStr('Task Description: ')
     priority = pyip.inputInt('Assign Priority:\n[1] High\n[2] Medium\n[3] Low\n')
@@ -79,7 +59,7 @@ def add():
         priority = 'Medium'
     elif priority == 3:
         priority = 'Low'
-    task = Task(description, priority, duedate, done)
+    task = task.Task(description, priority, duedate, done)
     tasks.append(task)
     save_tasks(tasks)
     print(f'Added Task: {description}; Priority: {priority}, Due Date: {str(duedate)}\n')
@@ -100,16 +80,3 @@ def mark_done():
     tasks[choice].done=True
     save_tasks(tasks)
 
-while True:
-    view_tasks()
-    choice = pyip.inputInt('''\nWould you like to:
-    [1] Add a Task
-    [2] Mark a Task as Done
-    [3] Exit Program\n''', min=1, max=3)
-
-    if choice == 1:
-        add()
-    elif choice == 2:
-        mark_done()
-    elif choice == 3:
-        exit()
